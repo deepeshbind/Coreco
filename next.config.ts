@@ -10,6 +10,7 @@ const nextConfig: NextConfig = {
         pathname: '/u/**',
       },
     ],
+    domains: ["lh3.googleusercontent.com"],
   },
   async headers() {
     return [

@@ -42,6 +42,7 @@ import LoadingStep from "@/components/ui/loader";
 import { PlaygroundEditor } from "@/features/playground/components/playground-editor";
 import { useFileExplorer } from "@/features/playground/hooks/useFileExplorer";
 import { usePlayground } from "@/features/playground/hooks/usePlayground";
+import { useWebContainer } from "@/features/webContainers/hooks/useWebContainer";
 import { SaveUpdatedCode } from "@/features/playground/actions";
 import { TemplateFolder } from "@/features/playground/types";
 import { findFilePath } from "@/features/playground/lib";
@@ -206,21 +207,21 @@ const MainPlaygroundPage: React.FC = () => {
         const updatedTemplateData = JSON.parse(
           JSON.stringify(latestTemplateData)
         );
-        // const updateFileContent = (items: any[]) =>
-        //   items.map((item) => {
-        //     if ("folderName" in item) {
-        //       return { ...item, items: updateFileContent(item.items) };
-        //     } else if (
-        //       item.filename === fileToSave.filename &&
-        //       item.fileExtension === fileToSave.fileExtension
-        //     ) {
-        //       return { ...item, content: fileToSave.content };
-        //     }
-        //     return item;
-        //   });
-        // updatedTemplateData.items = updateFileContent(
-        //   updatedTemplateData.items
-        // );
+        const updateFileContent = (items: any[]) =>
+          items.map((item) => {
+            if ("folderName" in item) {
+              return { ...item, items: updateFileContent(item.items) };
+            } else if (
+              item.filename === fileToSave.filename &&
+              item.fileExtension === fileToSave.fileExtension
+            ) {
+              return { ...item, content: fileToSave.content };
+            }
+            return item;
+          });
+        updatedTemplateData.items = updateFileContent(
+          updatedTemplateData.items
+        );
 
         // Sync with WebContainer
         if (writeFileSync) {
@@ -232,8 +233,8 @@ const MainPlaygroundPage: React.FC = () => {
         }
 
         // Use saveTemplateData to persist changes
-        // const newTemplateData = await saveTemplateData(updatedTemplateData);
-        // setTemplateData(newTemplateData || updatedTemplateData);
+        const newTemplateData = await saveTemplateData(updatedTemplateData);
+        setTemplateData(newTemplateData || updatedTemplateData);
 
         // Update open files
         const updatedOpenFiles = openFiles.map((f) =>

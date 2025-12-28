@@ -28,7 +28,7 @@ const WebContainerPreview: React.FC<WebContainerPreviewProps> = ({
   forceResetup = false,
 }) => {
   const [previewUrl, setPreviewUrl] = useState<string>("");
-  const [loadingState, setLoadingState] = useState({
+  const [loadingState,  ] = useState({
     transforming: false,
     mounting: false,
     installing: false,
@@ -51,7 +51,7 @@ const WebContainerPreview: React.FC<WebContainerPreviewProps> = ({
       setIsSetupInProgress(false);
       setPreviewUrl("");
       setCurrentStep(0);
-      setLoadingState({
+        ({
         transforming: false,
         mounting: false,
         installing: false,
@@ -86,7 +86,7 @@ const WebContainerPreview: React.FC<WebContainerPreviewProps> = ({
                 terminalRef.current.writeToTerminal(`🌐 Reconnected to server at ${url}\r\n`);
               }
               setPreviewUrl(url);
-              setLoadingState((prev) => ({
+                ((prev) => ({
                 ...prev,
                 starting: false,
                 ready: true,
@@ -96,7 +96,7 @@ const WebContainerPreview: React.FC<WebContainerPreviewProps> = ({
             });
             
             setCurrentStep(4);
-            setLoadingState((prev) => ({ ...prev, starting: true }));
+              ((prev) => ({ ...prev, starting: true }));
             return;
           }
         } catch (e) {
@@ -104,7 +104,7 @@ const WebContainerPreview: React.FC<WebContainerPreviewProps> = ({
         }
         
         // Step 1: Transform data
-        setLoadingState((prev) => ({ ...prev, transforming: true }));
+          ((prev) => ({ ...prev, transforming: true }));
         setCurrentStep(1);
         
         // Write to terminal
@@ -115,7 +115,7 @@ const WebContainerPreview: React.FC<WebContainerPreviewProps> = ({
         // @ts-ignore
         const files = transformToWebContainerFormat(templateData);
 
-        setLoadingState((prev) => ({
+          ((prev) => ({
           ...prev,
           transforming: false,
           mounting: true,
@@ -133,7 +133,7 @@ const WebContainerPreview: React.FC<WebContainerPreviewProps> = ({
           terminalRef.current.writeToTerminal("✅ Files mounted successfully\r\n");
         }
 
-        setLoadingState((prev) => ({
+          ((prev) => ({
           ...prev,
           mounting: false,
           installing: true,
@@ -169,7 +169,7 @@ const WebContainerPreview: React.FC<WebContainerPreviewProps> = ({
           terminalRef.current.writeToTerminal("✅ Dependencies installed successfully\r\n");
         }
 
-        setLoadingState((prev) => ({
+          ((prev) => ({
           ...prev,
           installing: false,
           starting: true,
@@ -190,7 +190,7 @@ const WebContainerPreview: React.FC<WebContainerPreviewProps> = ({
             terminalRef.current.writeToTerminal(`🌐 Server ready at ${url}\r\n`);
           }
           setPreviewUrl(url);
-          setLoadingState((prev) => ({
+            ((prev) => ({
             ...prev,
             starting: false,
             ready: true,
@@ -220,7 +220,7 @@ const WebContainerPreview: React.FC<WebContainerPreviewProps> = ({
         
         setSetupError(errorMessage);
         setIsSetupInProgress(false);
-        setLoadingState({
+          ({
           transforming: false,
           mounting: false,
           installing: false,
