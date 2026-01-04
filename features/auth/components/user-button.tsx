@@ -13,7 +13,7 @@ import { LogOut, User } from "lucide-react";
 import LogoutButton from "./logout-button";
 import { useCurrentUser } from "../hooks/use-current-user";
 
-const userButton = () => {
+const UserButton = () => {
     const user = useCurrentUser()
     return (
         <DropdownMenu>
@@ -21,7 +21,7 @@ const userButton = () => {
             <div className={cn("relative rounded-full")}>
             <Avatar>
                 <AvatarImage src={user?.image!} alt={user?.name!} />
-                <AvatarFallback className="bg-red-500">
+                <AvatarFallback className="cursor-pointer">
                 <User className="text-white" />
                 </AvatarFallback>
             </Avatar>
@@ -47,4 +47,4 @@ const userButton = () => {
   );
 };
 
-export default userButton;
+export default UserButton;

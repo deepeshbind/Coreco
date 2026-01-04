@@ -20,10 +20,10 @@ export default function Home() {
             </AnimatedShinyText>
           </div>
         </div>
-        <div className="font-extrabold dark:font-bold tracking-tighter text-transparent bg-gradient-to-br from-neutral-500 via-neutral-700 to-neutral-800 dark:from-neutral-600 dark:via-neutral-100 dark:to-white bg-clip-text text-4xl lg:text-[50px] leading-[1.1] text-center text-balance">
+        <div className="font-extrabold tracking-tighter text-4xl lg:text-6xl leading-[1.1] text-center text-balance">
           Coreco - AI-Powered Web IDE
         </div>
-        <div className="text-neutral-700/80 dark:text-neutral-400/60 font-[450] text-center text-lg md:text-xl max-w-md mx-auto py-4 text-balance leading-[1.5]">
+        <div className="text-foreground/30 text-center text-lg lg:text-2xl md:text-xl max-w-lg mx-auto py-4 text-balance leading-[1.5]">
           Coreco is a fullstack, web-based IDE built with Next.js and Monaco
           Editor. It features real-time code execution using WebContainers,
           AI-powered code suggestions via locally running Ollama models,

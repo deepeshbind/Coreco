@@ -49,6 +49,7 @@ export default async function RootLayout({
         <meta name="format-detection" content="telephone=no" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="mobile-web-app-capable" content="yes" />
+        
       </head>
       <body
         className={`${onest.variable} antialiased min-h-screen`}

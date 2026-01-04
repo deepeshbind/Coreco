@@ -241,8 +241,8 @@ const TemplateSelectionModal = ({
         {step === "select" ? (
           <>
             <DialogHeader>
-              <DialogTitle className="text-2xl font-bold text-[#e93f3f] flex items-center gap-2">
-                <Plus size={24} className="text-[#e93f3f]" />
+              <DialogTitle className="text-2xl font-bold text-primary flex items-center gap-2">
+                <Plus size={24} className="text-primary" />
                 Select a Template
               </DialogTitle>
               <DialogDescription>
@@ -292,8 +292,8 @@ const TemplateSelectionModal = ({
                           transition-all duration-300 hover:scale-[1.02]
                           ${
                             selectedTemplate === template.id
-                              ? "border-[#E93F3F]  shadow-[0_0_0_1px_#E93F3F,0_8px_20px_rgba(233,63,63,0.15)]"
-                              : "hover:border-[#E93F3F] shadow-[0_2px_8px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_20px_rgba(0,0,0,0.1)]"
+                              ? "border-primary"
+                              : "hover:border-primary"
                           }`}
                         onClick={() => handleSelectTemplate(template.id)}
                       >
@@ -302,7 +302,7 @@ const TemplateSelectionModal = ({
                         </div>
 
                         {selectedTemplate === template.id && (
-                          <div className="absolute top-2 left-2 bg-[#E93F3F] text-white rounded-full p-1">
+                          <div className="absolute top-2 left-2 bg-primary text-background rounded-full p-1">
                             <Check size={14} />
                           </div>
                         )}
@@ -397,7 +397,7 @@ const TemplateSelectionModal = ({
                   Cancel
                 </Button>
                 <Button
-                  className="bg-[#E93F3F] hover:bg-[#d03636]"
+                  variant="accent"
                   disabled={!selectedTemplate}
                   onClick={handleContinue}
                 >
@@ -409,7 +409,7 @@ const TemplateSelectionModal = ({
         ) : (
           <>
             <DialogHeader>
-              <DialogTitle className="text-2xl font-bold text-[#e93f3f]">
+              <DialogTitle className="text-2xl font-bold text-foregound">
                 Configure Your Project
               </DialogTitle>
               <DialogDescription>
@@ -429,14 +429,14 @@ const TemplateSelectionModal = ({
                 />
               </div>
 
-              <div className="p-4 shadow-[0_0_0_1px_#E93F3F,0_8px_20px_rgba(233,63,63,0.15)] rounded-lg border">
+              <div className="p-4 border-foreground/10 rounded-lg border">
                 <h3 className="font-medium mb-2">Selected Template Features</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {templates
                     .find((t) => t.id === selectedTemplate)
                     ?.features.map((feature) => (
                       <div key={feature} className="flex items-center gap-2">
-                        <Zap size={14} className="text-[#E93F3F]" />
+                        <Zap size={14} className="text-[#4f616d]" />
                         <span className="text-sm">{feature}</span>
                       </div>
                     ))}
@@ -449,7 +449,7 @@ const TemplateSelectionModal = ({
                 Back
               </Button>
               <Button
-                className="bg-[#E93F3F] hover:bg-[#d03636]"
+                variant="accent"
                 onClick={handleCreateProject}
               >
                 Create Project

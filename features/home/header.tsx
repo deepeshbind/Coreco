@@ -52,6 +52,11 @@ export function Header() {
             Give us a star
           </Button>
         </Link>
+        <Separator
+        orientation="vertical"
+        className="m-2 h-6"
+        />
+        <UserButton />
       </div>
       </div>
     </>
