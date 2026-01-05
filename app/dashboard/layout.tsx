@@ -3,6 +3,15 @@ import { getAllPlaygroundForUser } from "@/features/dashboard/actions"
 import { DashboardSidebar } from "@/features/dashboard/dashboard-sidebar"
 import type React from "react"
 
+interface playground {
+  id: string;
+  title: string;
+  Starmark?: {
+    isMarked: boolean;
+  }[];
+}
+
+
 export default async function DashboardLayout({
   children,
 }: {

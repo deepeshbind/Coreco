@@ -33,7 +33,7 @@ const SignInFormClient = () => {
         </CardDescription>
       </CardHeader>
 
-      <CardContent className="grid gap-4">
+      <CardContent className="grid gap-4 cursor-pointer">
         <form action={handleGoogleSignIn}>
           <Button type="submit" variant={"outline"} className="w-full">
             <Chrome className="mr-2 h-4 w-4" />

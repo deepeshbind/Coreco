@@ -12,14 +12,14 @@ export function Header() {
       <div className="flex flex-row justify-between sticky py-4 z-50 px-8 rounded-2xl border border-primary/10">
         <div className="flex gap-2">
           <div className="flex items-center gap-2">
-            <Image src="/logo.svg" alt="logo" width={40} height={40} />
+            <Image src="/logo.svg" alt="logo" width={35} height={35} />
             <div>
-              <h5 className="text-lg font-semibold flex items-center gap-2">
+              <span className="text-3xl font-semibold flex items-center gap-2">
                 Coreco
-                <span className="text-xs rounded-full bg-primary/10 px-2 py-1 w-fit">
+                <span className="text-[10px] rounded-full bg-primary/10 px-2 py-1 w-fit">
                   BETA
                 </span>
-              </h5>
+              </span>
             </div>
           </div>
           <Separator
